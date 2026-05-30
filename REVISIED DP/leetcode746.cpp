@@ -22,6 +22,16 @@ vector<int>dp;
        }
        return min (dp[0],dp[1]);
  }
+ int mincost_tbu( vector<int>&cost, int st){
+    int n = cost.size();
+    dp.resize( n+2 , 0);
+    for( int i = n-1 ; i >= st ; i--){
+        int single = dp[i+1]+cost[i];
+        int doble = dp[i+2]+cost[i];
+        dp[i]= min( single, doble);
+    }
+    return dp[st];
+ }
     int minCostClimbingStairs(vector<int>& cost) {
     //    dp.resize(cost.size()+1,-1);
     //    return min(  helper(cost,0), helper(cost,1));
@@ -29,5 +39,7 @@ vector<int>dp;
        dp.clear();
        dp.resize(cost.size()+2,0);
        return helper_tbu(cost);
+       //         return min({mincost_tbu(cost, 0),mincost_tbu(cost,1)});
+
     }
 };
