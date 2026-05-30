@@ -1,0 +1,13 @@
+# Ignore executable files
+*.exe
+
+# VS Code settings
+.vscode/
+
+# Temporary files
+*.log
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
